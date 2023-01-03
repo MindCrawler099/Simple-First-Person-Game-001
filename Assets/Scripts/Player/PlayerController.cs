@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementVector = Vector3.zero;
     //Look
     private float rotationX = 0f;
+    private float rotationY = 0f;
 
     private void Awake()
     {
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
     private void PlayerLook()
     {
         rotationX += playerControllerConfig.isLookInvertedX * playerInput.actions["Look"].ReadValue<Vector2>().y * playerControllerConfig.lookSensitivity * Time.deltaTime;
+        rotationY -= playerControllerConfig.isLookInvertedY * playerInput.actions["Look"].ReadValue<Vector2>().x * playerControllerConfig.lookSensitivity * Time.deltaTime;
         fpCamera.rotation = Quaternion.Euler(new Vector3(rotationX, 0f, 0f));
+        transform.rotation *= Quaternion.Euler(new Vector3(0f,rotationY,0f));
     }
 }
