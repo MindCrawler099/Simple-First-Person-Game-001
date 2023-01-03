@@ -14,6 +14,15 @@ public class PlayerControllerConfig : ScriptableObject{
     [Header("Fall Parameters")]
     public float gravityMultiplier = 3f;
 
+    [Header("Jump Parameters")]
+    public float jumpHeight = 1f;
+
+    [Header("HeadBob Parameters")]
+    public float walkBobAmplitude = 0.2f;
+    public float walkBobFrequency = 30f;
+    public float runBobAmplitude = 0.4f;
+    public float runBobFrequency = 30f;
+
     public float isLookInvertedX
     {
         get
