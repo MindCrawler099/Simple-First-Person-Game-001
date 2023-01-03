@@ -30,10 +30,10 @@ public class PlayerControllerConfig : ScriptableObject{
         get
         {
             if (lookInvertedY == false){
-                return -1f;
+                return 1f;
             }
             else{
-                return 1f;
+                return -1f;
             }
         }
     }

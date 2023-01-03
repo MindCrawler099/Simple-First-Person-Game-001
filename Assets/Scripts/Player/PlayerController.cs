@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
     private void PlayerLook()
     {
         rotationX += playerControllerConfig.isLookInvertedX * playerInput.actions["Look"].ReadValue<Vector2>().y * playerControllerConfig.lookSensitivity * Time.deltaTime;
-        rotationY -= playerControllerConfig.isLookInvertedY * playerInput.actions["Look"].ReadValue<Vector2>().x * playerControllerConfig.lookSensitivity * Time.deltaTime;
-        fpCamera.rotation = Quaternion.Euler(new Vector3(rotationX, 0f, 0f));
+        rotationY = playerControllerConfig.isLookInvertedY * playerInput.actions["Look"].ReadValue<Vector2>().x * playerControllerConfig.lookSensitivity * Time.deltaTime;
+        fpCamera.localRotation = Quaternion.Euler(new Vector3(rotationX, 0f, 0f));
         transform.rotation *= Quaternion.Euler(new Vector3(0f,rotationY,0f));
     }
 }
