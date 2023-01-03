@@ -11,6 +11,9 @@ public class PlayerControllerConfig : ScriptableObject{
     [SerializeField] private bool lookInvertedX = false;
     [SerializeField] private bool lookInvertedY = false;
 
+    [Header("Fall Parameters")]
+    public float gravityMultiplier = 3f;
+
     public float isLookInvertedX
     {
         get

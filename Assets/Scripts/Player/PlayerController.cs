@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private float currentPlayerSpeed = 5f;
     private Vector2 playerInputVector  = Vector3.zero;
     private Vector3 movementVector = Vector3.zero;
+    //Fall
+    private Vector3 fallVector = Vector3.zero;
     //Look
     private float rotationX = 0f;
     private float rotationY = 0f;
@@ -31,8 +33,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        PlayerFall();
         PlayerMovement();
         PlayerLook();
+    }
+
+    private void PlayerFall()
+    {
+        fallVector.y -= playerControllerConfig.gravityMultiplier * Physics.gravity.sqrMagnitude * Time.deltaTime;
+        characterController.Move(fallVector * Time.deltaTime);
     }
 
     private void PlayerMovement()
